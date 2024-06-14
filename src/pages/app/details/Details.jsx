@@ -1,15 +1,15 @@
 import React from "react";
 import style from "./Details.module.css";
 import coursesData from "../../../data/courses.json";
-import { useParams ,Link } from "react-router-dom";
 //Third task: import useParams hook
+import { Link, useParams } from "react-router-dom";
 
 function Details() {
+  //Third Task: get course id and match it with the data
   const { courseId } = useParams();
-  const course = coursesData.find((course)=> course.id ===courseId)
+  const course = coursesData.find((course) => course.id === courseId);
+
   return (
-    //Third Task: get course id and match it with the data
-    
     <div className={style.courses_container}>
       <div className={style.card_container}>
         <div className={style.card_image}>
@@ -26,7 +26,7 @@ function Details() {
       </div>
       {/* Task4: create Link to the Learn Page */}
       <Link to={`/learn/${course.id}`}>
-       <button className={style.button}>Start Learning</button>
+        <button className={style.button}>Start Learning</button>
       </Link>
     </div>
   );
